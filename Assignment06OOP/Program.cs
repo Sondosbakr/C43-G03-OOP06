@@ -1,4 +1,5 @@
 ﻿
+using Assignment06OOP.SecondProject;
 using System;
 
 namespace Assignment06OOP
@@ -32,7 +33,21 @@ namespace Assignment06OOP
 
             #endregion
 
-            
+            #region SecondProject
+            Console.WriteLine(Maths.Add(10, 5));
+            Console.WriteLine(Maths.Subtract(10, 5));
+            Console.WriteLine(Maths.Multiply(10, 5));
+            try 
+            {
+                Console.WriteLine(Maths.devide(10, 5));
+                Console.WriteLine(Maths.devide(10,0));
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            #endregion
         }
 
         #region First Project
