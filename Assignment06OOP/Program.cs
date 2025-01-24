@@ -1,5 +1,6 @@
 ﻿
 using Assignment06OOP.SecondProject;
+using Assignment06OOP.ThirdProject;
 using System;
 
 namespace Assignment06OOP
@@ -34,19 +35,57 @@ namespace Assignment06OOP
             #endregion
 
             #region SecondProject
-            Console.WriteLine(Maths.Add(10, 5));
-            Console.WriteLine(Maths.Subtract(10, 5));
-            Console.WriteLine(Maths.Multiply(10, 5));
-            try 
+            //Console.WriteLine(Maths.Add(10, 5));
+            //Console.WriteLine(Maths.Subtract(10, 5));
+            //Console.WriteLine(Maths.Multiply(10, 5));
+            //try 
+            //{
+            //    Console.WriteLine(Maths.devide(10, 5));
+            //    Console.WriteLine(Maths.devide(10,0));
+            //}
+            //catch(Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+
+            #endregion
+
+            #region ThirdProject
+            Console.WriteLine("Please input the type (Regular, Premium, or Guest)");
+            string userType = Console.ReadLine().Trim().ToLower();
+
+            User user;
+            if (userType == "regular")
+                user = new RegularUser("RegularUser");
+            else if (userType == "premium")
+                user = new PremiumUser("PremiumUser");
+            else if (userType == "guest")
+                user = new GuestUser("GuestUser");
+            else
             {
-                Console.WriteLine(Maths.devide(10, 5));
-                Console.WriteLine(Maths.devide(10,0));
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Invalid User Type");
+                return;
             }
 
+            Console.WriteLine("Enter the product price");
+            decimal.TryParse(Console.ReadLine(), out decimal price);
+            Console.WriteLine("Enter the product quantity");
+            int.TryParse(Console.ReadLine(), out int quantity);
+
+
+            Discount discount = user.GetDiscount();
+            decimal discountAmount = 0;
+            if (discount != null)
+            {
+                discountAmount = discount.CalculateDiscount(price, quantity);
+                Console.WriteLine($"Discount Type: {discount.Name}");
+                Console.WriteLine($"Total Discount: {discountAmount:C}");
+            }
+            decimal totalPrice = price * quantity;
+            decimal finalPrice = totalPrice - discountAmount;
+
+            Console.WriteLine($"Total Price: {totalPrice:C}");
+            Console.WriteLine($"Final Price: {finalPrice:C}");
             #endregion
         }
 

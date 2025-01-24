@@ -47,6 +47,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecondProject\Maths.cs" />
+    <Compile Include="ThirdProject\BuyOneGetOneDiscount.cs" />
+    <Compile Include="ThirdProject\Discount.cs" />
+    <Compile Include="ThirdProject\FlatDiscount.cs" />
+    <Compile Include="ThirdProject\PercentageDiscount.cs" />
+    <Compile Include="ThirdProject\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
