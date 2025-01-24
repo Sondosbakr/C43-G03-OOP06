@@ -7,10 +7,56 @@ namespace Assignment06OOP
     {
         static void Main(string[] args)
         {
-           
+            #region First Project
+            //Point3D p1 = ReadPoint("P1");
+            //Point3D p2 = ReadPoint("P2");
+
+            //if (p1 == p2)
+            //    Console.WriteLine("P1 Equals P2");
+            //else
+            //    Console.WriteLine("P1 Not Equal P2");
+
+            //Console.WriteLine("------------------------------");
+
+            //Console.WriteLine("Sorted Array");
+            //Point3D[] points = { p1, p2, new Point3D(10, 20, 30), new Point3D(5, 10, 15) };
+            //Array.Sort(points);
+            //foreach (Point3D point in points)
+            //    Console.WriteLine(point);
+
+            //Console.WriteLine("--------------------------------");
+
+            //Console.WriteLine("Cloned Object");
+            //p2 = (Point3D)p1.Clone();
+            //Console.WriteLine(p2);
+
+            #endregion
 
             
         }
+
+        #region First Project
+        public static Point3D ReadPoint(string pointName)
+        {
+            int x, y, z;
+            while (true)
+            {
+                Console.WriteLine($"Enter X Y Z Coordinators for {pointName}");
+                string[] input = Console.ReadLine().Split();
+                if (input.Length == 3 &&
+                int.TryParse(input[0], out x) &&
+                int.TryParse(input[1], out y) &&
+                int.TryParse(input[2], out z))
+                {
+                    return new Point3D(x, y, z);
+                }
+                Console.WriteLine("Invalid input. Please use the format 'x y z'.");
+            }
+        }
+        #endregion
+
+
+
     }
 
     
